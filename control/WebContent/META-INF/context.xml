@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/control">
+    <Realm className="org.apache.catalina.realm.JDBCRealm"
+   driverName="com.mysql.jdbc.Driver"
+   connectionURL="jdbc:mysql://localhost:3306/agri"
+   connectionName="enfant1"
+   connectionPassword="!Muepu$2016!"
+   userTable="accountadmin" userNameCol="user_name" userCredCol="password"
+   userRoleTable="accountadmin_roles" roleNameCol="role_name" />
+       </Context>

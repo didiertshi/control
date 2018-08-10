@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/batik-awt-util-1.6-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/batik-ext-1.6-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/batik-gui-util-1.6-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/batik-util-1.6-1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/commons-beanutils-1.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/commons-codec-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/commons-digester-1.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/commons-el-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/commons-fileupload-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/commons-io-1.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/commons-validator-1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/dsn.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/gimap.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/imap.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/javax.faces.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/jaxb-api-2.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/jaxb-impl-2.1.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/jersey-bundle-1.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/jsf-impl-2.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/jstl-api-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/jstl-impl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/mailapi.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/mysql-connector5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/oro-2.0.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/pop3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/smtp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/stax-api-1.0-2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/tomahawk-1.1.14.jar"/>
+	<classpathentry kind="lib" path="C:/Users/didie/Documents/Magacel/libraries/wstx-asl-3.2.1.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:t="http://myfaces.apache.org/tomahawk">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ministere de l'Agriculture RDC Acceuil</title>
+<h:outputStylesheet name="css/control9.css"/>
+<h:outputScript name="jsf.js" Library="javax.faces"/>
+<h:outputScript  name="js/updateloc.js" target="head"/>
+
+</h:head>
+
+    <h:body class="body">
+         <div class="header">
+              <p class="c1">République Démocratique du Congo<h:graphicImage value="../../../agri_images/emblem3.jpg" alt="Pineapple" styleClass="c11"/></p>
+              <p class="c2">Cabinet du Ministre de l'agriculture</p>
+        </div>
+        <div class="c4"> Page d'accueil</div>
+        
+        <ul>
+           <li>
+                 <div class="dropdown"><span>LE_MINISTERE</span>
+                           <div class="dropdown-content">
+                              
+                              <p><a href="home.html">Le_Ministre</a></p>
+                              <p><a href="home.html">Organisation_du_ministere</a></p>
+                              <p><a href="home.html">Lois_et_Reglements</a></p>
+                              <p><a href="home.html">Formulaires_et_Permis</a></p>
+                         
+                            </div>
+              
+                 </div>
+                 
+                 <div class="dropdown"><span>PLAN_STRATEGIQUE</span>
+                          <div class="dropdown-content">
+                 
+                           <p><a href="home.html">Plan_strategique_generale</a></p>
+                           <p><a href="home.html">Plan_strategique_par_secteur_et_province</a></p>
+                         </div>
+                  </div>
+                 
+                 <div class="dropdown"><span>PRODUCTION_ANIMALE</span>
+                       <div class="dropdown-content">
+                 
+                           <p><a href="home.html">VACHE_TAUREAU</a></p>
+                           <p><a href="home.html">PORC</a></p>
+                           <p><a href="home.html">CHEVRE_BOUC</a></p>
+                           <p><a href="home.html">POULE_COQ</a></p>
+                           <p><a href="home.html">CANARD</a></p>
+                           <p><a href="home.html">DINDE</a></p>
+                           <p><a href="home.html">MOUTON</a></p>
+                           
+                         </div>
+                  
+                  </div>
+                  
+                  <div class="dropdown"><span>PRODUCTION_VEGETALE</span>
+                        <div class="dropdown-content">
+                 
+                           <p><a href="home.html">MAIS</a></p>
+                           <p><a href="home.html">MANIOC</a></p>
+                           <p><a href="home.html">ARACHIDE</a></p>
+                           <p><a href="home.html">HARICOTS</a></p>
+                           <p><a href="home.html">BANANNE</a></p>
+                           <p><a href="home.html">HUILE_de_PALME</a></p>
+                           <p><a href="home.html">HUILE_d_ARACHIDE</a></p>
+                           <p><a href="home.html">LEGUMES</a></p>
+                         </div>
+                  
+                  </div>
+                  
+                  <div class="dropdown"><span>PECHE</span>
+                        <div class="dropdown-content">
+                 
+                           <p><a href="home.html">PECHE_ARTISANALE</a></p>
+                           <p><a href="home.html">PECHE_SEMIE_INDUSTRIELLE</a></p>
+                           <p><a href="home.html">PECHE_INDUSTRIELLE</a></p>
+                           
+                         </div>
+                  
+                  </div>
+          
+           </li>
+        
+        
+        </ul>
+        
+        <div class="row">
+           <div class="column left">
+               <div class="c4">Type de Mise a jour</div>
+               <br></br>
+               <br></br>
+               <div>
+                  
+                  <button class="c6" onclick="showtext()">TEXTS</button>
+               </div>
+               <br></br>
+               <br></br> 
+               <div>
+                  <button class="c6" onclick="showimage()">IMAGES</button>
+               
+               </div>
+               
+               <br></br>
+               <br></br> 
+               <div>
+                  <button class="c6" onclick="showvideo()">VIDEOS</button>
+               
+               </div>
+               
+               <br></br>
+               <br></br> 
+               <div>
+                  <button class="c6" onclick="showfile()">FICHIERS</button>
+               
+               </div>
+               
+           </div>
+        
+          <div class="column right">
+              <div class="c4">Detail de Mise a jour</div>
+              <br></br>
+               <br></br>
+                <div class="changes-container">
+                     <div class="myTexts">
+                        <h:form id="text_form" enctype="multipart/form-data">
+                             <h:dataTable id="texttable1" value="#{bean.dispTexts}" var="item" border="5">
+                                <f:facet name="header">
+					                      <h:outputText value="LISTE DES TEXTES"/>
+				                </f:facet>
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Text_ID"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.agri_text_id}"/>
+				                </h:column>
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Text_Name"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.text_name}"/>
+				                </h:column>
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Text_Value"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.text_value}"/>
+				                </h:column>
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Text_Page"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.text_page}"/>
+				                </h:column>
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Text_Location"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.text_location}"/>
+				                </h:column>
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Text_Section"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.text_section}"/>
+				                </h:column>
+                             </h:dataTable>
+                             
+                        </h:form>
+                        
+                     </div>
+                     
+                     <div class="myImages">
+                         <h:form id="image_form" enctype="multipart/form-data">
+                              <h:dataTable id="imagetable1" value="#{bean.dispImages}" var="item" border="1">
+                                  <f:facet name="header">
+					                      <h:outputText value="LISTE DES IMAGES"/>
+				                  </f:facet>
+                              </h:dataTable>
+                     
+                         </h:form>
+                     </div>
+                     <div class="myVideos" >
+                          <h:form id="video_form" enctype="multipart/form-data">
+                                 <h:dataTable id="videotable1" value="#{bean.dispVideos}" var="item" border="1">
+                                     <f:facet name="header">
+					                      <h:outputText value="LISTE DES VIDEOS"/>
+				                     </f:facet>
+                                 </h:dataTable>
+                          </h:form>
+                     </div>
+                     
+                     <div class="myFiles">
+                          <h:form id="files_form" enctype="multipart/form-data"> 
+                               <h:dataTable id="filetable1" value="#{bean.dispFiles}" var="item" border="1">
+                                    <f:facet name="header">
+					                      <h:outputText value="LISTE DES FICHIERS"/>
+				                     </f:facet>
+                               
+                                </h:dataTable>
+                          
+                          </h:form>
+                     </div>
+                
+                </div>
+          
+          </div>
+        </div>
+        
+        <script language="javascript">
+        function showtext(){
+        	var limages = document.getElementsByClassName("myFiles");
+        	limages[0].style.display = "none";
+        	var limages = document.getElementsByClassName("myVideos");
+        	limages[0].style.display = "none"; 
+        	var limages = document.getElementsByClassName("myImages");
+        	limages[0].style.display = "none"; 
+        	var ltextes = document.getElementsByClassName("myTexts");
+        	ltextes[0].style.display = "block"; 
+          }
+        function showimage(){
+        	var limages = document.getElementsByClassName("myFiles");
+        	limages[0].style.display = "none";
+        	var limages = document.getElementsByClassName("myVideos");
+        	limages[0].style.display = "none"; 
+        	var ltextes = document.getElementsByClassName("myTexts");
+        	ltextes[0].style.display = "none"; 
+        	var limages = document.getElementsByClassName("myImages");
+        	limages[0].style.display = "block"; 
+          }
+        
+        function showvideo(){
+        	var limages = document.getElementsByClassName("myFiles");
+        	limages[0].style.display = "none";
+        	var ltextes = document.getElementsByClassName("myTexts");
+        	ltextes[0].style.display = "none"; 
+        	var limages = document.getElementsByClassName("myImages");
+        	limages[0].style.display = "none"; 
+        	var limages = document.getElementsByClassName("myVideos");
+        	limages[0].style.display = "block"; 
+        	
+        	
+          }
+        
+        function showfile(){
+        	var ltextes = document.getElementsByClassName("myTexts");
+        	ltextes[0].style.display = "none"; 
+        	var limages = document.getElementsByClassName("myImages");
+        	limages[0].style.display = "none"; 
+        	var limages = document.getElementsByClassName("myVideos");
+        	limages[0].style.display = "none"; 
+        	var limages = document.getElementsByClassName("myFiles");
+        	limages[0].style.display = "block"; 
+        	
+          }
+        </script> 
+        
+        
+    </h:body>
+   
+</html>
