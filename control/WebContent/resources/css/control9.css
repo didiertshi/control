@@ -131,7 +131,7 @@ p a:hover {
 }
 .myTexts{
 	display: none;
-	text-align: center;
+	
 	color:#0000ff;
 }
 
@@ -152,4 +152,15 @@ p a:hover {
 	border-collapse:collapse;
 	border:5px solid #0000ff;
 	
+}
+
+.c7{
+	text-align: center;
+	font-size: 15px;
+	color: #0000ff;
+	
+}
+
+.c8{
+	display: inline;
 }

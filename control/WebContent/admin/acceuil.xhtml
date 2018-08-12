@@ -127,7 +127,55 @@
               <br></br>
                <br></br>
                 <div class="changes-container">
+                
                      <div class="myTexts">
+                     
+                       <h:form id="part2_form" enctype="multipart/form-data">
+                           
+                             <div class="c8">
+                               
+                             <h:panelGrid id="lpg" columns="1">
+                                 
+                                 <h:panelGroup id="Tpage1">
+                                      <h:outputText value="Selectioner le texte :"/>
+                                      <h:selectOneMenu value="#{bean.vtext}">
+                                          <f:selectItems value="#{bean.iTextes }" />
+                                          <f:ajax event="change" render="STpage1"/>
+                                      </h:selectOneMenu>
+                                 </h:panelGroup>
+                                 
+                           
+                              <h:panelGroup id="STpage1">
+                                  
+                                  
+                                      <h:outputText value="Contenu du text :  "/>
+                                      <h:outputText value="#{bean.selectedTpage1}"/>
+                                  
+                                  
+                               </h:panelGroup>
+                               
+                               <h:panelGroup id="NTpage1">
+				    	           <h:outputLabel value="Nouveau Texte  "/>
+				    	           
+				    	           <h:inputTextarea value="#{bean.ntext}" rows="3" cols="100" />
+				                   
+				               </h:panelGroup>
+                               
+                              <h:panelGroup id="SubmitTp1">
+                                  <h:outputLabel value="Changer Texte  "/>
+                                  <h:commandButton  styleClass="c6" value="Changer Texte" action="#{bean.submittext}"/>
+                              </h:panelGroup>
+                              
+                           </h:panelGrid>
+                           
+                           </div>
+                              
+                       </h:form>
+                      
+                      <br></br>
+                      <br></br>
+                        
+                        <div class="c7">
                         <h:form id="text_form" enctype="multipart/form-data">
                              <h:dataTable id="texttable1" value="#{bean.dispTexts}" var="item" border="5">
                                 <f:facet name="header">
@@ -172,10 +220,11 @@
                              </h:dataTable>
                              
                         </h:form>
-                        
+                        </div>
                      </div>
                      
                      <div class="myImages">
+                       <div class="c7">
                          <h:form id="image_form" enctype="multipart/form-data">
                               <h:dataTable id="imagetable1" value="#{bean.dispImages}" var="item" border="1">
                                   <f:facet name="header">
@@ -184,6 +233,7 @@
                               </h:dataTable>
                      
                          </h:form>
+                         </div>
                      </div>
                      <div class="myVideos" >
                           <h:form id="video_form" enctype="multipart/form-data">

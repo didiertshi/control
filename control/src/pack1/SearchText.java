@@ -4,6 +4,8 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.model.SelectItem;
+
 public class SearchText {
 	java.sql.Connection con = null;
 	String url = "jdbc:mysql://localhost:3306/agri";
@@ -39,6 +41,31 @@ public class SearchText {
 		}
 		
 		return theTList;
+	}
+	
+	public List<SelectItem>  getVTextes(){
+		
+		String query1 = "select * from agri_text where text_page = '"+page+"'";
+		ArrayList<SelectItem> textes = new ArrayList<SelectItem>();
+		
+		try{
+			textes.add(new SelectItem("0","--- Selectioner texte ---"));
+			Class.forName(driver).newInstance();
+			con = DriverManager.getConnection(url,userName,password);
+			st = con.createStatement();
+			java.sql.ResultSet rs = st.executeQuery(query1);
+			while (rs.next()){
+				textes.add(new SelectItem(rs.getString(1),rs.getString(2)));
+			}
+			rs.close();
+            st.close();
+            con.close();
+			
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+		}
+		
+		return textes;
 	}
 
 }
