@@ -47,6 +47,9 @@ public class bean {
 	// new text value
 	private String ntext;
 	
+	private String vimage;
+	private String nimage;
+	
 	public String getNtext() {
 		return ntext;
 	}
@@ -112,10 +115,21 @@ public class bean {
 	//Display Images page1
 	
 	public List getdispImages(){
-		ArrayList  dispImages = new ArrayList();
-		
+		String page = ""+1;
+		ArrayList<ImageInfo>  dispImages = new ArrayList<ImageInfo>();
+		dispImages = (ArrayList<ImageInfo>)(new SearchImage(page).LImage());
 		return dispImages;
 	}
+	
+	// itemlist of image page1
+	public List<SelectItem> getiImages(){
+		String page = ""+1;
+		ArrayList<SelectItem> iimages = new ArrayList<SelectItem>();
+		iimages = (ArrayList<SelectItem>) (new SearchImage(page)).getVImages();
+		
+		return iimages;
+	}
+	
 	
 	// Display Videos page1
 	

@@ -230,6 +230,21 @@
                                   <f:facet name="header">
 					                      <h:outputText value="LISTE DES IMAGES"/>
 				                  </f:facet>
+				                  
+				                  <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Image_ID"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.gallery_image_id}"/>
+				                </h:column>
+				                
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Image_Page"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.image_page}"/>
+				                </h:column>
+				                
                               </h:dataTable>
                      
                          </h:form>
