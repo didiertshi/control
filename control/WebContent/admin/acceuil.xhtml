@@ -224,6 +224,53 @@
                      </div>
                      
                      <div class="myImages">
+                     
+                     <h:form id="part3_form" enctype="multipart/form-data">
+                     
+                         <div class="c8">
+                         
+                             <h:panelGrid id="lpg2" columns="1">
+                             
+                                 <h:panelGroup id="Ipage1">
+                                 
+                                      <h:outputText value="Selectioner l' image :"/>
+                                      <h:selectOneMenu value="#{bean.vimage}">
+                                          <f:selectItems value="#{bean.iImages }" />
+                                          <f:ajax event="change" render="SIpage1"/>
+                                          
+                                      </h:selectOneMenu>
+                         
+                         
+                                 </h:panelGroup>
+                            
+                                 <h:panelGroup id="SIpage1">
+                                  
+                                  
+                                      <h:outputText value="Contenu de l image :  "/>
+                                                                    
+                                      <h:graphicImage  value="#{bean.selectedIpage1}" height="400" width="600"/>
+                                      
+                               </h:panelGroup>  
+                               
+                               <h:panelGroup id="NIpage1">
+				    	           <h:outputLabel value="Description Nouvelle Image  "/>
+				    	           
+				    	           <h:inputText value="#{bean.nimagedesc}"/>
+				                   
+				               </h:panelGroup>
+                             </h:panelGrid>
+                         
+                         
+                         </div>
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     </h:form>
+                     
                        <div class="c7">
                          <h:form id="image_form" enctype="multipart/form-data">
                               <h:dataTable id="imagetable1" value="#{bean.dispImages}" var="item" border="1">
@@ -254,6 +301,12 @@
 				                
 				                <h:column>
 				                     <f:facet name="header">
+				                         <h:outputText value="Image_Name"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.image_name}"/>
+				                </h:column>
+				                <h:column>
+				                     <f:facet name="header">
 				                         <h:outputText value="Image_Description"/>
 				                     </f:facet>
 				                     <h:outputText value="#{item.image_desc}"/>
@@ -266,11 +319,14 @@
 				                     <h:outputText value="#{item.image_date}"/>
 				                </h:column>
 				                
+				                
                               </h:dataTable>
                      
                          </h:form>
                          </div>
                      </div>
+                     
+                     
                      <div class="myVideos" >
                           <h:form id="video_form" enctype="multipart/form-data">
                                  <h:dataTable id="videotable1" value="#{bean.dispVideos}" var="item" border="1">

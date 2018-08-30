@@ -137,15 +137,16 @@ p a:hover {
 
 .myImages{
 	display: none;
-	
+	color:#0000ff;
 }
 
 .myVideos{
 	display: none;
-	
+	color:#0000ff;
 }
 .myFiles{
 	display: none;
+	color:#0000ff;
 }
 
 .t1{

@@ -48,7 +48,51 @@ public class bean {
 	private String ntext;
 	
 	private String vimage;
-	private String nimage;
+	private String nimagedesc;
+	
+	public String getNimagedesc() {
+		return nimagedesc;
+	}
+
+	public void setNimagedesc(String nimagedesc) {
+		this.nimagedesc = nimagedesc;
+	}
+	
+	// Image Value
+	private String selectedIpage1;
+	
+	public String getSelectedIpage1() {
+		
+		String query1 ="select * from agri.agri_gallery_image where gallery_image_id = '"+vimage+"'";
+		try{
+			Class.forName(driver).newInstance();
+    		con = DriverManager.getConnection(url,userName,password);
+    		st = con.createStatement();
+    		java.sql.ResultSet rs = st.executeQuery(query1);
+                rs.next();
+                selectedIpage1 = "/../../../agri_images/"+rs.getString(5);
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+		}
+		
+		
+		return selectedIpage1;
+	}
+
+	public void setSelectedIpage1(String selectedIpage1) {
+		this.selectedIpage1 = selectedIpage1;
+	}
+
+	public String getVimage() {
+		return vimage;
+	}
+
+	public void setVimage(String vimage) {
+		this.vimage = vimage;
+		
+	}
+
+	
 	
 	public String getNtext() {
 		return ntext;
@@ -167,4 +211,6 @@ public class bean {
 		}
 		
 	}
+
+	
 }
