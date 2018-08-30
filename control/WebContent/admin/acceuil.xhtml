@@ -244,6 +244,27 @@
 				                     </f:facet>
 				                     <h:outputText value="#{item.image_page}"/>
 				                </h:column>
+				                <h:column>
+					                  <f:facet name="header">
+						                   <h:outputText value="Image Picture"/>
+					                  </f:facet>
+					
+					                  <h:graphicImage  value="#{item.image_file}" height="100" width="150"/>
+				                </h:column>
+				                
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Image_Description"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.image_desc}"/>
+				                </h:column>
+				                
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Image_Date"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.image_date}"/>
+				                </h:column>
 				                
                               </h:dataTable>
                      

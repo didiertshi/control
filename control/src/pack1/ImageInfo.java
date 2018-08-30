@@ -50,7 +50,7 @@ public class ImageInfo {
 		this.gallery_image_id = gallery_image_id;
 		this.image_date = image_date;
 		this.image_desc = image_desc;
-		this.image_file = image_file;
+		this.image_file = "/../../../agri_images/"+image_file;
 		this.image_name = image_name;
 		this.image_page = image_page;
 	}
