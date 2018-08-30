@@ -256,7 +256,10 @@
 				    	           <h:outputLabel value="Description Nouvelle Image  "/>
 				    	           
 				    	           <h:inputText value="#{bean.nimagedesc}"/>
-				                   
+				    	           <h:outputLabel for="ifilep1" value="Selectioner image"/>
+				                   <t:inputFileUpload id="ifilep1" value="#{bean.uploadeImage}" required="true"/>
+				                   <h:commandButton value="Changer Image" action="#{bean.submitIp1}"/>
+				                   <h:message for="ifilep1" style="color:red"/>
 				               </h:panelGroup>
                              </h:panelGrid>
                          

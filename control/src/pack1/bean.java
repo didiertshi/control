@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.CallableStatement;
 import java.sql.DriverManager;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -50,6 +53,22 @@ public class bean {
 	private String vimage;
 	private String nimagedesc;
 	
+	private UploadedFile uploadeImage;
+	
+	private String imageName;
+	
+	private Date date;
+	
+	private DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+	
+	public UploadedFile getUploadeImage() {
+		return uploadeImage;
+	}
+
+	public void setUploadeImage(UploadedFile uploadeImage) {
+		this.uploadeImage = uploadeImage;
+	}
+
 	public String getNimagedesc() {
 		return nimagedesc;
 	}
@@ -173,7 +192,48 @@ public class bean {
 		
 		return iimages;
 	}
-	
+	//Change Image
+	public void submitIp1() throws IOException{
+		
+		String query = "update agri.agri_gallery_image set image_date = ? ,image_file = ?,image_desc= ? where gallery_image_id = '"+vimage+"'";
+		File file = null;
+		OutputStream output = null;
+		// Prepare filename prefix and suffix for an unique filename in upload folder.
+        String prefix = FilenameUtils.getBaseName(uploadeImage.getName());
+        String suffix = FilenameUtils.getExtension(uploadeImage.getName());
+        
+        try{
+        	// Create file with unique name in upload folder and write to it.
+        	file = File.createTempFile(prefix + "_", "." + suffix, new File("C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/agri_images"));
+        	 output = new FileOutputStream(file);
+        	 IOUtils.copy(uploadeImage.getInputStream(), output);
+        	 imageName = file.getName();
+        	 
+        	       FacesContext.getCurrentInstance().addMessage("country", new FacesMessage(
+                     FacesMessage.SEVERITY_INFO, "File upload succeed!", null));
+        }finally{
+        	IOUtils.closeQuietly(output);	
+        	
+        }
+        
+      //update record to mysql for image on page 1
+        String strDate = dateFormat.format(date);
+        
+        try{
+        	Class.forName(driver).newInstance();
+    		con = DriverManager.getConnection(url,userName,password);
+			PreparedStatement preparedStmt = (PreparedStatement) con.prepareStatement(query);
+			preparedStmt.setString (1, strDate);
+			preparedStmt.setString (2, imageName);
+			preparedStmt.setString (2, nimagedesc);
+			preparedStmt.executeUpdate();
+			con.close();
+			
+        }catch(Exception ex){
+        	System.out.println(ex.getMessage());
+        }
+        
+	}
 	
 	// Display Videos page1
 	
@@ -211,6 +271,8 @@ public class bean {
 		}
 		
 	}
+	
+	// End Page 1
 
 	
 }
