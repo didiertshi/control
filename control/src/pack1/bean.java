@@ -318,6 +318,27 @@ public class bean {
 	public void submitVp1(){
 		
 		
+		try{
+			Date date= new Date();
+    		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    		strDate = dateFormat.format(date);
+    		String youtubeS = nyoutube_parm.trim();
+    		String query = "update agri_youtube set agri_youtube_param = ?,agri_youtube_date = ? ,agri_youtube_desc = ? where agri_youtube_id = ?";
+    		
+    		Class.forName(driver).newInstance();
+    		con = DriverManager.getConnection(url,userName,password);
+			PreparedStatement preparedStmt = (PreparedStatement) con.prepareStatement(query);
+			preparedStmt.setString (1, youtubeS);
+			preparedStmt.setString (2, strDate);
+			preparedStmt.setString (3, nvideodesc);
+			preparedStmt.setString (4, vvideo);
+			
+			preparedStmt.executeUpdate();
+			con.close();
+			
+		}catch(Exception ex){
+			System.out.println(ex);
+		}
 		
 		
 	}
