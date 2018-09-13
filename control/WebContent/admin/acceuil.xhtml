@@ -257,8 +257,12 @@
 				    	           
 				    	           <h:inputText value="#{bean.nimagedesc}"/>
 				    	           <h:outputLabel for="ifilep1" value="Selectioner image"/>
-				                   <t:inputFileUpload id="ifilep1" value="#{bean.uploadeImage}" required="true"/>
-				                   <h:commandButton value="Changer Image" action="#{bean.submitIp1}"/>
+				                   <t:inputFileUpload  id="ifilep1" value="#{bean.uploadeImage}" required="true"/>
+				                   
+				               </h:panelGroup>
+				                    
+				               <h:panelGroup id="changeTp1">
+				                   <h:commandButton styleClass="c6" value="Changer Image" action="#{bean.submitIp1}"/>
 				                   <h:message for="ifilep1" style="color:red"/>
 				               </h:panelGroup>
                              </h:panelGrid>
@@ -331,13 +335,114 @@
                      
                      
                      <div class="myVideos" >
-                          <h:form id="video_form" enctype="multipart/form-data">
+                     
+                      <h:form id="part4_form" enctype="multipart/form-data">
+                      
+                        <div class="c8">
+                        
+                          <h:panelGrid id="lpg3" columns="1">
+                          
+                            <h:panelGroup id="Vpage1">
+                               <h:outputText value="Selectioner la video :"/>
+                                
+                                  <h:selectOneMenu value="#{bean.vvideo}">
+                                      <f:selectItems value="#{bean.iVideos}" />
+                                      <f:ajax event="change" render="SVpage1"/>
+                                  
+                                  </h:selectOneMenu>
+                            
+                            </h:panelGroup>
+                            <h:panelGroup id="SVpage1">
+                               <h:outputText value="Contenu de la Video :  "/>
+                               <iframe width="300" height="170" src="#{bean.selectedVpage1}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="true"></iframe>
+                            </h:panelGroup >
+                                
+                            
+                            <h:panelGroup id="NVpage1">
+                                 <h:outputLabel value="Description Nouvelle Video  "/>
+                                 <h:inputText value="#{bean.nvideodesc}"/>
+                                 <h:outputLabel value="parametre Youtube de la Nouvelle Video  "/>
+                                 <h:inputText value="#{bean.nyoutube_parm}"/>
+                            </h:panelGroup>
+                            
+                            
+                            <h:panelGroup id="SubmitVp1">
+                                        <h:outputLabel value="Changer video  "/>
+                                        <h:commandButton  styleClass="c6" value="Changer Video" action="#{bean.submitVp1}"/>
+                         
+                         
+                            </h:panelGroup>
+                            
+                          </h:panelGrid>
+                         
+                        
+                        
+                        </div>
+                      
+                      
+                      
+                      
+                      
+                      </h:form>
+                     
+                         <div class="c7">
+                               <h:form id="video_form" enctype="multipart/form-data">
+                                                    
                                  <h:dataTable id="videotable1" value="#{bean.dispVideos}" var="item" border="1">
                                      <f:facet name="header">
 					                      <h:outputText value="LISTE DES VIDEOS"/>
 				                     </f:facet>
+				                     
+				                     <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Video_ID"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.agri_youtube_id}"/>
+				                </h:column>
+				                
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Video_Name"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.agri_youtube_name}"/>
+				                </h:column>
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Video_Param"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.agri_youtube_param}"/>
+				                </h:column>
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Video_Date"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.agri_youtube_date}"/>
+				                </h:column>
+				                
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Video_Description"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.agri_youtube_desc}"/>
+				                </h:column>
+				                
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Video_Page"/>
+				                     </f:facet>
+				                     <h:outputText value="#{item.agri_youtube_page}"/>
+				                </h:column>
+				                
+				                <h:column>
+				                     <f:facet name="header">
+				                         <h:outputText value="Video_Content"/>
+				                     </f:facet>
+				                     <iframe width="300" height="170" src="#{item.agri_youtube_link}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="true"></iframe>
+				                </h:column>
+				                
                                  </h:dataTable>
                           </h:form>
+                          </div>
                      </div>
                      
                      <div class="myFiles">

@@ -52,15 +52,67 @@ public class bean {
 	
 	private String vimage;
 	private String nimagedesc;
+	private String nvideodesc;
+	private String nyoutube_parm;
 	
+	public String getNyoutube_parm() {
+		return nyoutube_parm;
+	}
+
+	public void setNyoutube_parm(String nyoutube_parm) {
+		this.nyoutube_parm = nyoutube_parm;
+	}
+
+	public String getNvideodesc() {
+		return nvideodesc;
+	}
+
+	public void setNvideodesc(String nvideodesc) {
+		this.nvideodesc = nvideodesc;
+	}
+
 	private UploadedFile uploadeImage;
 	
 	private String imageName;
 	
-	private Date date;
+	private String strDate;
+	private String vvideo;
+	private String selectedVpage1;
 	
-	private DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-	
+	public String getSelectedVpage1() {
+		
+		String query1 ="select * from agri_youtube where agri_youtube_id  = '"+vvideo+"'";
+		
+		
+		try{
+			Class.forName(driver).newInstance();
+    		con = DriverManager.getConnection(url,userName,password);
+    		st = con.createStatement();
+    		java.sql.ResultSet rs = st.executeQuery(query1);
+                rs.next();
+                selectedVpage1 = "https://www.youtube.com/embed/"+rs.getString(3);
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+		}
+		
+		
+		
+		
+		return selectedVpage1;
+	}
+
+	public void setSelectedVpage1(String selectVpage1) {
+		this.selectedVpage1 = selectVpage1;
+	}
+
+	public String getVvideo() {
+		return vvideo;
+	}
+
+	public void setVvideo(String vvideo) {
+		this.vvideo = vvideo;
+	}
+
 	public UploadedFile getUploadeImage() {
 		return uploadeImage;
 	}
@@ -195,7 +247,6 @@ public class bean {
 	//Change Image
 	public void submitIp1() throws IOException{
 		
-		String query = "update agri.agri_gallery_image set image_date = ? ,image_file = ?,image_desc= ? where gallery_image_id = '"+vimage+"'";
 		File file = null;
 		OutputStream output = null;
 		// Prepare filename prefix and suffix for an unique filename in upload folder.
@@ -209,23 +260,29 @@ public class bean {
         	 IOUtils.copy(uploadeImage.getInputStream(), output);
         	 imageName = file.getName();
         	 
-        	       FacesContext.getCurrentInstance().addMessage("country", new FacesMessage(
-                     FacesMessage.SEVERITY_INFO, "File upload succeed!", null));
+        	       FacesContext.getCurrentInstance().addMessage("Country", new FacesMessage(
+                     FacesMessage.SEVERITY_INFO, "File : "+imageName+" upload succeed!", null));
         }finally{
         	IOUtils.closeQuietly(output);	
         	
         }
         
       //update record to mysql for image on page 1
-        String strDate = dateFormat.format(date);
+        
         
         try{
+        	System.out.println(vimage);
+        	Date date= new Date();
+    		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    		strDate = dateFormat.format(date);
+    		
+    		String query = "update agri_gallery_image set image_date = ? ,image_file = ?,image_desc= ? where gallery_image_id = '"+vimage+"'";
         	Class.forName(driver).newInstance();
     		con = DriverManager.getConnection(url,userName,password);
 			PreparedStatement preparedStmt = (PreparedStatement) con.prepareStatement(query);
 			preparedStmt.setString (1, strDate);
 			preparedStmt.setString (2, imageName);
-			preparedStmt.setString (2, nimagedesc);
+			preparedStmt.setString (3, nimagedesc);
 			preparedStmt.executeUpdate();
 			con.close();
 			
@@ -238,9 +295,31 @@ public class bean {
 	// Display Videos page1
 	
 	public List getdispVideos(){
-		ArrayList  dispVideos = new ArrayList();
-		
+		String page = ""+1;
+		ArrayList<VideoInfo>  dispVideos = new ArrayList<VideoInfo>();
+		dispVideos = (ArrayList<VideoInfo>) new SearchVideo(page).LVideo();
 		return dispVideos;
+	}
+	
+	
+	// itemlist of videos page1
+	
+	public List<SelectItem> getiVideos(){
+		
+		String page = ""+1;
+		ArrayList<SelectItem> ivideos = new ArrayList<SelectItem>();
+		  ivideos =(ArrayList<SelectItem>)  (new SearchVideo(page)).getVVideos();
+		
+		return ivideos;
+	}
+	
+	//Change Video
+	
+	public void submitVp1(){
+		
+		
+		
+		
 	}
 	
 	// Display Files page1
